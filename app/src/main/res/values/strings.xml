@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">social-network-android</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email_hint">Nhập email</string>
+    <string name="password_hint">Nhập mật khẩu</string>
+    <string name="login_button">Đăng nhập</string>
+    <string name="forgot_password">Quên mật khẩu</string>
+    <string name="btn_signup">Tạo tài khoản</string>
+    <string name="invalid_email">Email Không hợp lệ</string>
+    <string name="invalid_password">Mật khẩu không hợp lệ</string>
+</resources>
