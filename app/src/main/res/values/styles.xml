@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LoadingDialogCustom" parent="android:Theme.DeviceDefault.Dialog">
+        <item name="DialogTitleAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="DialogTitleText">Đang tải...</item>
+        <item name="DialogSpotColor">@color/login_btn_before_click</item>
+        <item name="DialogSpotCount">5</item>
+    </style>
+</resources>

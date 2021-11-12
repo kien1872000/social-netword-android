@@ -1,22 +1,21 @@
 package com.example.social_network_android.ui.home.signup.fragments
 
-import android.annotation.SuppressLint
-import android.graphics.Color
+
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.social_network_android.R
-import com.example.social_network_android.ui.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_display_name.*
-import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.edt_form.*
+import kotlinx.android.synthetic.main.edt_input.view.*
+import kotlinx.android.synthetic.main.rounded_corner_btn.view.*
+import android.text.InputFilter
+import android.text.InputFilter.LengthFilter
+import com.example.social_network_android.utils.CommonUtils
+import com.example.social_network_android.utils.Constants
 
 
-class DisplayNameFragment : BaseFragment() {
+class DisplayNameFragment : ScreenWithEdtFragment() {
     private lateinit var birthdayFragment: BirthdayFragment
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,34 +27,31 @@ class DisplayNameFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        onUserTyping(edt_signup_display_name, txt_display_name_note, next_btn_display_name)
-        onNextBtnClick()
+        input = edt_input.edt
+        input.filters = arrayOf<InputFilter>(LengthFilter(Constants.DISPLAY_NAME_MAX_LENGTH))
+        nextBtn = next_btn.next
+        note = txt_note
+        title = txt_title
+        action = next_btn.action
+        CommonUtils.setText(
+            input,
+            title,
+            note,
+            action,
+            getString(R.string.display_name_title),
+            getString(R.string.display_name_hint),
+            getString(R.string.display_name_note),
+            getString(R.string.next_action)
+        )
+        onUserTyping(input, note, nextBtn, "")
+        onNextBtnClick(::showBirthdayFragment)
     }
-    @SuppressLint("ClickableViewAccessibility", "ResourceAsColor")
-    private fun onNextBtnClick(){
-        val displayName = edt_signup_display_name.text.toString().trim()
-        next_btn_display_name.setOnTouchListener { v, event ->
-            when (event.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    next_btn_display_name_txt.setBackgroundColor(resources.getColor(R.color.login_btn_after_click))
-                }
-                MotionEvent.ACTION_UP -> {
-                    next_btn_display_name_txt.setBackgroundColor(resources.getColor(R.color.login_btn_before_click))
-                    showBirthdayFragment()
-                }
 
-            }
-            true
-        }
-    }
+
     private fun showBirthdayFragment() {
-        val displayName = edt_signup_display_name.text.toString().trim()
+        val displayName = input.text.toString().trim()
         birthdayFragment = BirthdayFragment.newInstance(displayName)
-        requireActivity().supportFragmentManager.beginTransaction()
-            .setCustomAnimations(R.anim.slide_left_enter, R.anim.slide_left_exit, R.anim.slide_right_exit, R.anim.slide_right_enter)
-            .addToBackStack(null)
-            .replace(R.id.main_id, birthdayFragment)
-            .commit()
+        showFragment("birthdayFm", birthdayFragment)
     }
 
 }

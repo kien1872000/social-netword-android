@@ -10,14 +10,18 @@
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/drawable/rounded_corner.xml" value="0.25833333333333336" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/drawable/signup_btn_rounded_corner.xml" value="0.25277777777777777" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_activation.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/edt_form.xml" value="0.115625" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/edt_input.xml" value="0.115625" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_activation.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_birthday.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_display_name.xml" value="0.1" />
-        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_email.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_email.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_login.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_password.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_sex.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_signup.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/rounded_corner_btn.xml" value="0.115625" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/signup_footer.xml" value="0.115625" />
       </map>
     </option>
   </component>

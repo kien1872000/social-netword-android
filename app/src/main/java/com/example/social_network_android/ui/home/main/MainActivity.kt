@@ -19,6 +19,11 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         showLoginFragment()
     }
+
+    override fun hideLoading() {
+        TODO("Not yet implemented")
+    }
+
     private fun showLoginFragment(){
         loginFragment = LoginFragment()
         supportFragmentManager.beginTransaction()

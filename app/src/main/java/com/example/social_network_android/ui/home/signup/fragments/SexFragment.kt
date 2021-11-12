@@ -1,37 +1,36 @@
 package com.example.social_network_android.ui.home.signup.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
-import android.widget.Toast
 import com.example.social_network_android.R
 import kotlinx.android.synthetic.main.fragment_sex.*
 import android.content.res.ColorStateList
-import android.graphics.Color
-
 import android.os.Build
-
-
-
+import android.view.MotionEvent
+import android.widget.TextView
+import com.example.social_network_android.ui.base.BaseFragment
+import com.example.social_network_android.utils.CommonUtils
+import com.example.social_network_android.utils.Constants
+import kotlinx.android.synthetic.main.rounded_corner_btn.view.*
 
 
 private const val DISPLAY_NAME = "displayName"
 private const val BIRTHDAY = "birthday"
 
-class SexFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var sex: String? = null
-    private var displayName: String? = null
-    private var birthday: String? = null
-
+class SexFragment : BaseSignupFragment() {
+    private lateinit var emailFragment: EmailFragment
+    private var sex: Int = -1
+    private lateinit var displayName: String
+    private lateinit var birthday: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            displayName = it.getString(DISPLAY_NAME)
-            birthday = it.getString(BIRTHDAY)
+            displayName = it.getString(DISPLAY_NAME).toString()
+            birthday = it.getString(BIRTHDAY).toString()
         }
     }
 
@@ -45,37 +44,57 @@ class SexFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        radio_btn_signup_sex.setOnCheckedChangeListener { group, checkedId ->
+        nextBtn = next_btn_sex.next
+        title = txt_title_sex
+        action = next_btn_sex.action
+        CommonUtils.setText(
+            null,
+            title,
+            null,
+            action,
+            getString(R.string.sex_title),
+            "",
+            "",
+            getString(R.string.next_action)
+        )
+        nextBtn.visibility = View.GONE
+        onCheckedChange(view)
+        onNextBtnClick(::showEmailFragment)
+    }
+    private fun onCheckedChange(view: View){
+        radio_btn_signup_sex.setOnCheckedChangeListener { _, checkedId ->
+            nextBtn.visibility = View.VISIBLE
+            setRadioBtnColor(radio_male, resources.getColor(R.color.line_color))
+            setRadioBtnColor(radio_female, resources.getColor(R.color.line_color))
+            setRadioBtnColor(radio_other, resources.getColor(R.color.line_color))
 
             val radioButton = view.findViewById<RadioButton>(checkedId)
             onRadioButtonClicked(radioButton)
         }
     }
-    fun onRadioButtonClicked(view: RadioButton) {
-
-            // Is the button now checked?
-            val checked = view.isChecked
-            setRBColorAfterCheck(view, resources.getColor(R.color.line_color))
-
-        // Check which radio button was clicked
-            when (view.getId()) {
-                R.id.radio_male ->
-                    if (checked) {
-                        setRBColorAfterCheck(view, resources.getColor(R.color.forgot_password))
-                        Toast.makeText(activity, "male", Toast.LENGTH_SHORT).show()
-                    }
-                R.id.radio_female ->
-                    if (checked) {
-                        setRBColorAfterCheck(view, resources.getColor(R.color.forgot_password))
-                        Toast.makeText(activity, "female", Toast.LENGTH_SHORT).show()
-                    }
-                R.id.radio_other ->
-                    if (checked) {
-                        setRBColorAfterCheck(view, resources.getColor(R.color.forgot_password))
-                        Toast.makeText(activity, "female", Toast.LENGTH_SHORT).show()
-                    }
-            }
-
+    private fun onRadioButtonClicked(view: RadioButton) {
+        val checked = view.isChecked
+        when (view.id) {
+            R.id.radio_male ->
+                if (checked) {
+                    setRadioBtnColor(view, resources.getColor(R.color.forgot_password))
+                    sex = Constants.Sex.MALE.value
+                }
+            R.id.radio_female ->
+                if (checked) {
+                    setRadioBtnColor(view, resources.getColor(R.color.forgot_password))
+                    sex = Constants.Sex.FEMALE.value
+                }
+            R.id.radio_other ->
+                if (checked) {
+                    setRadioBtnColor(view, resources.getColor(R.color.forgot_password))
+                    sex = Constants.Sex.OTHER.value
+                }
+        }
+    }
+    private fun showEmailFragment() {
+        emailFragment = EmailFragment.newInstance(displayName, birthday, sex)
+        showFragment("emailFm", emailFragment)
     }
     companion object {
         @JvmStatic
@@ -87,19 +106,16 @@ class SexFragment : Fragment() {
                 }
             }
     }
-    private fun setRBColorAfterCheck(view: RadioButton, colorRes: Int){
+    private fun setRadioBtnColor(view: RadioButton, resColorId: Int){
         if (Build.VERSION.SDK_INT >= 21) {
             val colorStateList = ColorStateList(
                 arrayOf(
-                    intArrayOf(-android.R.attr.state_enabled),
                     intArrayOf(android.R.attr.state_enabled)
                 ), intArrayOf(
-                    colorRes,  // disabled
-                    colorRes // enabled
+                    resColorId
                 )
             )
-            view.buttonTintList = colorStateList // set the color tint list
-            view.invalidate() // Could not be necessary
+            view.buttonTintList = colorStateList
         }
     }
 }

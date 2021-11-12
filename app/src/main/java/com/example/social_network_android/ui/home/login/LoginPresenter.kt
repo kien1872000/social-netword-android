@@ -7,6 +7,7 @@ class LoginPresenter (private var loginView: ILoginView?): BasePresenter(),ILogi
     override fun validate(email: String, password: String): Boolean {
         return (email=="kien@gmail.com"&&password=="123456")
     }
+
     fun doLogin(email: String, password: String) {
         if(validate(email, password)) {
             loginView!!.onLoginSuccess()

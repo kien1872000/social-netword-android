@@ -2,11 +2,29 @@
     <string name="app_name">social-network-android</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="email_hint">Nhập email</string>
     <string name="password_hint">Nhập mật khẩu</string>
+    <string name="password_invalid">Mật khẩu không hợp lệ</string>
+    <string name="password_title">Tạo mật khẩu</string>
+    <string name="password_note">Mật khẩu phải có độ dài từ 6-20 kí tự\n bao gồm cả chữ cái cả số và các kí tự đặc biệt</string>
     <string name="login_button">Đăng nhập</string>
     <string name="forgot_password">Quên mật khẩu</string>
     <string name="btn_signup">Tạo tài khoản</string>
-    <string name="invalid_email">Email Không hợp lệ</string>
-    <string name="invalid_password">Mật khẩu không hợp lệ</string>
+    <string name="email_title">Email của bạn là gì</string>
+    <string name="email_hint">Nhập email</string>
+    <string name="email_note">Sử dụng email của bạn để đăng kí tài khoản.\nEmail này có thể dùng để đặt lại mật khẩu khi bạn quên </string>
+    <string name="email_invalid">Email Không hợp lệ</string>
+    <string name="display_name_title">Tên của bạn là gì</string>
+    <string name="display_name_hint">Nhập tên hiển thị</string>
+    <string name="display_name_note">Tên hiển thị không quá 50 kí tự\n
+        Hãy dùng tên thật để bạn bè có thể dễ dàng nhận ra bạn
+    </string>
+    <string name="birthday_title">Ngày sinh của bạn là gì</string>
+    <string name="birthday_hint">Chọn ngày sinh</string>
+    <string name="birthday_note">Hãy nhập ngày sinh để chúng tôi có thể\n thông báo chúc mừng sinh nhật bạn</string>
+    <string name="birthday_invalid">Ngày sinh không hợp lệ</string>
+    <string name="sex_title">Giới tính của bạn là gì</string>
+    <string name="activation_title">Kích hoạt tài khoản</string>
+    <string name="activation_hint">Nhập mã kích hoạt</string>
+    <string name="activation_note">Hãy nhập mã kích hoạt chúng tôi vừa gửi cho bạn để có thể kích hoạt và sử dụng tài khoản. Hãy bấm gửi lại nếu không thấy mail</string>
+    <string name="next_action">Tiếp tục</string>
 </resources>

@@ -4,7 +4,7 @@
     android:background="@color/homeBackground"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView
-        android:id="@+id/txt_sex_title"
+        android:id="@+id/txt_title_sex"
         android:layout_marginTop="100dp"
         android:gravity="center"
         android:textSize="25dp"
@@ -16,7 +16,7 @@
         android:id="@+id/radio_btn_signup_sex"
         android:layout_marginTop="30dp"
         android:layout_marginStart="2dp"
-        android:layout_below="@id/txt_sex_title"
+        android:layout_below="@id/txt_title_sex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -61,34 +61,11 @@
     </RadioGroup>
     <LinearLayout
         android:id="@+id/next_btn_sex"
+        android:layout_below="@id/radio_btn_signup_sex"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_marginStart="20dp"
-        android:visibility="invisible"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/login_btn_before_click"
-        android:layout_below="@+id/radio_btn_signup_sex"
-        android:background="@drawable/rounded_corner">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/rounded_corner"
-            android:gravity="center"
-            android:text="Hãy dùng tên thật để bạn bè dễ dàng nhận ra bạn"
-            android:textColor="@color/line_color"/>
+        android:layout_height="wrap_content">
+        <include layout="@layout/rounded_corner_btn"/>
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/line_color"
-        android:layout_above="@+id/login_btn_sex"/>
-    <TextView
-        android:id="@+id/login_btn_sex"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Bạn đã có tài khoản?"
-        android:textColor="@color/forgot_password"
-        android:gravity="center"
-        android:layout_margin="20dp"/>
+    <include layout="@layout/signup_footer"
+        android:id="@+id/login_footer"/>
 </RelativeLayout>

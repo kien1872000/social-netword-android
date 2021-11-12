@@ -22,5 +22,25 @@ abstract class BaseActivity : AppCompatActivity(), IBaseView {
         TODO("Not yet implemented")
     }
 
+    override fun onBadRequestError() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onConflictError() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onLogout() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onNotFoundError() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onServerError() {
+        TODO("Not yet implemented")
+    }
+
 
 }
