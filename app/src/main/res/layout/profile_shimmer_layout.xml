@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@color/homeBackground">
+        <View
+            android:layout_marginTop="10dp"
+            android:id="@+id/title_profile"
+            android:layout_width="150dp"
+            android:layout_height="10dp"
+            android:background="@color/line_color" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cover_photo"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:cardBackgroundColor="@color/homeBackground"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp">
+
+                <ImageView
+                    android:id="@+id/cover_photo_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/line_color" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="#00FAFFFF" />
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_width="217dp"
+                android:layout_height="217dp"
+                android:layout_alignTop="@+id/avatar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-7dp"
+                android:background="@drawable/avatar_border" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/avatar"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/cover_photo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-100dp"
+                android:background="@drawable/avatar_border"
+                app:cardCornerRadius="100dp">
+
+                <ImageView
+                    android:id="@+id/avatar_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/signup_btn"
+                    android:paddingBottom="100dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/line_color" />
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:id="@+id/display_name"
+                android:layout_width="300dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/avatar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="7dp"
+                android:background="@color/line_color"
+                android:text="Nguyễn Kiên" />
+
+            <LinearLayout
+                android:id="@+id/follow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/display_name"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/followers_total"
+                    android:layout_width="150dp"
+                    android:layout_height="15dp"
+                    android:background="@color/line_color" />
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="3dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@color/line_color" />
+
+                <View
+                    android:id="@+id/followings_total"
+                    android:layout_width="150dp"
+                    android:layout_height="15dp"
+                    android:background="@color/line_color"
+                    android:text="861" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/other_people_action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/follow"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="5dp">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/line_color"
+                        android:text="Đang theo dõi"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="13dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    app:cardCornerRadius="5dp">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/login_btn_before_click"
+                        android:text="Nhắn tin"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/separator_line_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/other_people_action"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/line_color" />
+
+            <View
+                android:id="@+id/view_info"
+                android:layout_width="250dp"
+                android:layout_height="15dp"
+                android:layout_below="@id/separator_line_1"
+                android:layout_marginVertical="10dp"
+                android:background="@color/line_color"
+                android:layout_centerHorizontal="true" />
+
+            <View
+                android:id="@+id/separator_line_2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/view_info"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/line_color" />
+
+            <View
+                android:id="@+id/img_video_title"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/separator_line_2"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/line_color"
+                />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/image_video_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_video_title"
+                android:layout_marginHorizontal="10dp"
+                app:cardBackgroundColor="@color/black"
+                app:cardCornerRadius="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/media_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="15dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/line_color"
+                            />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="24dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/line_color" />
+
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="15dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/line_color"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_below="@id/media_category"
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="30dp"
+                        android:layout_height="wrap_content">
+                        <View
+                            android:layout_width="120dp"
+                            android:background="@color/line_color"
+                            android:layout_marginStart="10dp"
+                            android:layout_height="120dp"/>
+                        <View
+                            android:layout_marginStart="5dp"
+                            android:layout_width="120dp"
+                            android:background="@color/line_color"
+                            android:layout_height="120dp"/>
+                        <View
+                            android:layout_marginStart="5dp"
+                            android:layout_width="120dp"
+                            android:background="@color/line_color"
+                            android:layout_height="120dp"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </LinearLayout>
+</merge>

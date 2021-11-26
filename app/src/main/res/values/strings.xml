@@ -27,4 +27,6 @@
     <string name="activation_hint">Nhập mã kích hoạt</string>
     <string name="activation_note">Hãy nhập mã kích hoạt chúng tôi vừa gửi cho bạn để có thể kích hoạt và sử dụng tài khoản. Hãy bấm gửi lại nếu không thấy mail</string>
     <string name="next_action">Tiếp tục</string>
+    <string name="cant_connect_server">Không thể kết nối đến server</string>
+    <string name="send_activation_code_success">Chúng tôi đã gửi mã kích hoạt vào mail cho bạn\n Vui lòng kiểm tra mail</string>
 </resources>

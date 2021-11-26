@@ -13,11 +13,12 @@
         android:layout_height="wrap_content"
         android:text="@string/activation_title"/>
     <Button
+        android:id="@+id/resendBtn"
         android:layout_toEndOf="@+id/edt_input"
         android:layout_below="@id/txt_title"
         android:layout_marginTop="25dp"
         android:textSize="15dp"
-        android:background="@color/login_btn_before_click"
+        android:background="@drawable/button_custom"
         android:text="Gửi lại"
         android:textColor="@color/white"
         android:layout_width="70dp"

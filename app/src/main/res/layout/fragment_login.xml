@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/homeBackground"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -25,7 +26,6 @@
         android:backgroundTint="@color/edtBackground"
         android:backgroundTintMode="screen"
         android:hint="@string/email_hint"
-        android:inputType="textPassword"
         android:maxLength="30"
         android:maxLines="1"
         android:paddingLeft="10dp"
@@ -41,6 +41,8 @@
         android:layout_below="@+id/edt_email"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:visibility="invisible"
+        android:text="@string/email_invalid"
         android:textColor="#930C0C"
         android:textSize="15sp" />
 
@@ -64,14 +66,15 @@
         android:textColorHint="@color/edtHint"
         android:textCursorDrawable="@color/edtHint"
         android:textSize="20sp" />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/edt_password"
-        android:layout_alignBottom="@+id/edt_password"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/hide" />
+
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignEnd="@+id/edt_password"-->
+<!--        android:layout_alignBottom="@+id/edt_password"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:src="@drawable/hide" />-->
 
     <TextView
         android:id="@+id/txt_view_password_error"
@@ -79,11 +82,13 @@
         android:layout_width="match_parent"
         android:textSize="15sp"
         android:layout_marginStart="20dp"
+        android:visibility="invisible"
+        android:text="@string/password_invalid"
         android:layout_marginRight="20dp"
         android:textColor="#930C0C"
         android:layout_height="wrap_content"/>
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/btn_login"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
@@ -91,18 +96,18 @@
         android:layout_below="@id/txt_view_password_error"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/rounded_corner"
-        android:backgroundTint="@color/login_btn_before_click">
+        app:cardCornerRadius="5dp">
+
         <TextView
             android:id="@+id/btn_login_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/rounded_corner"
+            android:background="@drawable/login_btn_click_effect"
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/login_button"
             android:textColor="@color/login_txt_before_type"
             android:textSize="20sp" />
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
     <TextView
         android:id="@+id/btn_forgot_password"
         android:layout_below="@+id/btn_login"

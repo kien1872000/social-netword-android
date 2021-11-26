@@ -8,7 +8,8 @@ object Constants {
         OTHER(2)
     }
     enum class ApiType{
-        AuthApi
+        PublicApi,
+        ProtectedApi
     }
 }
 

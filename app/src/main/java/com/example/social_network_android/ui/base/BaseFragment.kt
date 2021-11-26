@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.social_network_android.R
 import com.example.social_network_android.utils.DialogUtil
@@ -13,15 +14,14 @@ import com.example.social_network_android.utils.DialogUtil
 abstract class BaseFragment : Fragment(), IBaseView {
     private var loadingDialog: AlertDialog? = null
     override fun showMessage(msg: String) {
-        TODO("Not yet implemented")
     }
 
-    override fun onError(error: String) {
-        TODO("Not yet implemented")
+    override fun onError() {
+        Toast.makeText(requireActivity(), getString(R.string.cant_connect_server), Toast.LENGTH_SHORT).show()
     }
 
-    override fun onSuccess(msg: String) {
-        TODO("Not yet implemented")
+    override fun onSuccess() {
+
     }
 
     override fun showLoading() {
@@ -35,24 +35,21 @@ abstract class BaseFragment : Fragment(), IBaseView {
         }
     }
     override fun onBadRequestError() {
-        TODO("Not yet implemented")
+
     }
 
     override fun onConflictError() {
-        TODO("Not yet implemented")
+
     }
 
     override fun onLogout() {
-        TODO("Not yet implemented")
+
     }
 
     override fun onNotFoundError() {
-        TODO("Not yet implemented")
+
     }
 
-    override fun onServerError() {
-        TODO("Not yet implemented")
-    }
     protected fun showFragment(name: String?, fragment: BaseFragment) {
         requireActivity().supportFragmentManager.beginTransaction()
             .setCustomAnimations(

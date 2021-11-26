@@ -15,7 +15,7 @@
             android:layout_height="match_parent"
             android:text="Tiếp tục"
             android:gravity="center"
-            android:background="@color/login_btn_before_click"
+            android:background="@drawable/button_custom"
             android:textColor="@color/white"/>
     </androidx.cardview.widget.CardView>
 </merge>

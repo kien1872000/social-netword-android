@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/homeBackground"
+    tools:context=".ui.home.profile.ProfileFragment">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/profile_shimmer_layout" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+    <include
+        android:id="@+id/display_layout"
+        layout="@layout/profile_display_layout" />
+
+</FrameLayout>
