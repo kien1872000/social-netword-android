@@ -12,24 +12,26 @@ import retrofit2.Call
 import retrofit2.Response
 import java.net.SocketTimeoutException
 
-class LoginPresenter (): BasePresenter(),ILoginPresenter {
+class LoginPresenter() : BasePresenter(), ILoginPresenter {
     private val publicApi: PublicApi = AppApi.create(Constants.ApiType.PublicApi) as PublicApi
-    fun doLogin(email: String, password: String) {
+    override fun doLogin(email: String, password: String) {
         val loginReq = LoginReq(email, password)
         baseView?.showLoading()
-        publicApi.login(loginReq).enqueue(object: retrofit2.Callback<LoginRes>{
+        publicApi.login(loginReq).enqueue(object : retrofit2.Callback<LoginRes> {
             override fun onResponse(call: Call<LoginRes>, response: Response<LoginRes>) {
                 baseView?.hideLoading()
-                if(response.isSuccessful) {
-                    preferencesHelper?.setAccessToken(response.body()!!.accessToken)
-                    preferencesHelper?.setLoginMode(PreferencesHelper.LoginMode.LOGGED_IN)
+                if (response.isSuccessful) {
+                    preferencesHelper?.apply {
+                        setAccessToken(response.body()!!.accessToken)
+                        setUserName(response.body()!!.displayName)
+                        setLoginMode(PreferencesHelper.LoginMode.LOGGED_IN)
+                    }
                     baseView?.onSuccess()
-                }
-                else {
-                    Log.d("K1112", response.errorBody()!!.string())
+                } else {
                     handleApiError(response.code(), response.errorBody()!!.string())
                 }
             }
+
             override fun onFailure(call: Call<LoginRes>, t: Throwable) {
                 baseView?.hideLoading()
                 handleApiError(t = t)

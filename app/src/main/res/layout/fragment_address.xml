@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/homeBackground"
+    android:orientation="vertical"
+    tools:context=".ui.home.profile.address.AddressFragment">
+
+    <TextView
+        android:layout_marginTop="@dimen/title_margin"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:text="Chọn tỉnh/thành phố"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:drawableLeft="@drawable/search_icon"
+        android:textColor="@color/white"
+        android:textColorHint="@color/line_color"
+        android:hint="Tìm kiếm"
+        android:layout_marginTop="@dimen/title_margin"
+        android:background="@drawable/rounded_corner_search_box"
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_height="40dp"/>
+</LinearLayout>

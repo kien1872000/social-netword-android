@@ -20,4 +20,7 @@
     <color name="line_color">#65676a</color>
     <color name="login_btn_before_click">#1a74e3</color>
     <color name="login_btn_after_click">#4890ea</color>
+    <color name="img_state_pressed">#33716F6F</color>
+    <color name="img_state_normal">#00FFFFFF</color>
+    <color name="button_disabled">#99777575</color>
 </resources>

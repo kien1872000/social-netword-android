@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import com.example.social_network_android.R
+import com.example.social_network_android.data.local.prefs.PreferencesHelper
 import com.example.social_network_android.ui.login.signup.SignupPresenter
 import com.example.social_network_android.ui.login.signup.views.IActivationView
 import com.example.social_network_android.utils.CommonUtils
@@ -23,7 +24,7 @@ import kotlinx.android.synthetic.main.rounded_corner_btn.view.*
 private const val EMAIL = "email"
 private const val PASSWORD = "password"
 
-class ActivationFragment : ScreenWithEdtFragment(), IActivationView{
+class ActivationFragment : ScreenWithEdtFragment(), IActivationView {
     private lateinit var email: String
     private lateinit var password: String
     private lateinit var activationCode: String
@@ -36,12 +37,14 @@ class ActivationFragment : ScreenWithEdtFragment(), IActivationView{
             email = it.getString(EMAIL).toString()
             password = it.getString(PASSWORD).toString()
         }
+        signupPresenter =
+            SignupPresenter().also { it.onAttach(this, PreferencesHelper(requireContext())) }
     }
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_activation, container, false)
@@ -49,7 +52,6 @@ class ActivationFragment : ScreenWithEdtFragment(), IActivationView{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        signupPresenter.onAttach(this)
         resend = resendBtn
         input = edt_input.edt
         nextBtn = next_btn.next
@@ -71,10 +73,12 @@ class ActivationFragment : ScreenWithEdtFragment(), IActivationView{
         onResendBtnClick()
 
     }
-    private fun performActivationClick(){
+
+    private fun performActivationClick() {
         activationCode = input.text.toString().trim()
         signupPresenter.doActivate(email, activationCode)
     }
+
     companion object {
         @JvmStatic
         fun newInstance(email: String, password: String) =
@@ -85,11 +89,13 @@ class ActivationFragment : ScreenWithEdtFragment(), IActivationView{
                 }
             }
     }
+
     private fun onResendBtnClick() {
         resend.setOnClickListener {
             signupPresenter.sendActivationCode(email)
         }
     }
+
     override fun onBadRequestError() {
         nextBtn.visibility = View.GONE
         note.visibility = View.VISIBLE

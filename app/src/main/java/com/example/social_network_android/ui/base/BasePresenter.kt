@@ -14,11 +14,9 @@ import java.net.SocketTimeoutException
 abstract class BasePresenter: IBasePresenter {
     protected var baseView: IBaseView? = null
     protected var preferencesHelper: PreferencesHelper? = null
-    override fun onAttach(baseView: IBaseView, context: Context?) {
+    override fun onAttach(baseView: IBaseView, preferencesHelper: PreferencesHelper?) {
         this.baseView = baseView
-        context?.let {
-            preferencesHelper = PreferencesHelper(context)
-        }
+        this.preferencesHelper = preferencesHelper
     }
 
     override fun onDetach() {
@@ -29,12 +27,15 @@ abstract class BasePresenter: IBasePresenter {
         when(t) {
             is SocketTimeoutException -> baseView?.onError()
             is HttpException -> handleHttpError(t.code(), t.response()!!.errorBody()!!.string())
-            else -> handleApiError(statusCode, errorBody)
+            else -> handleHttpError(statusCode, errorBody)
         }
     }
     private fun handleHttpError(statusCode: Int, errorBody: String) {
         when(statusCode) {
-            HttpURLConnection.HTTP_UNAUTHORIZED -> baseView?.onLogout()
+            HttpURLConnection.HTTP_UNAUTHORIZED -> {
+                preferencesHelper?.setLoginMode(PreferencesHelper.LoginMode.LOGGED_OUT)
+                baseView?.onUnAuthorizeError()
+            }
             HttpURLConnection.HTTP_BAD_REQUEST -> baseView?.onBadRequestError()
             HttpURLConnection.HTTP_INTERNAL_ERROR -> {
                 val jsonObject: JSONObject = JSONObject(errorBody)

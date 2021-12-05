@@ -29,4 +29,15 @@
     <string name="next_action">Tiếp tục</string>
     <string name="cant_connect_server">Không thể kết nối đến server</string>
     <string name="send_activation_code_success">Chúng tôi đã gửi mã kích hoạt vào mail cho bạn\n Vui lòng kiểm tra mail</string>
+    <string name="cancel_action_text">Hủy</string>
+    <string name="save_action_text">Lưu</string>
+    <string name="information_title">Thông tin cá nhân</string>
+    <string name="information_display_name">Tên hiển thị</string>
+    <string name="information_birthday">Ngày sinh</string>
+    <string name="information_sex">Giới tính</string>
+    <string name="information_address">Địa chỉ</string>
+    <string name="view_info_text">Xem thông tin giới thiệu</string>
+    <string name="add_province_text">Thêm tỉnh/thành phố</string>
+    <string name="add_district_text">Thêm quận/huyện</string>
+    <string name="add_ward_text">Thêm xã/phường/thị trấn</string>
 </resources>

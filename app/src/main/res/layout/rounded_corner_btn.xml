@@ -4,11 +4,9 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/next"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_marginStart="20dp"
+        android:layout_height="35dp"
         app:cardCornerRadius="5dp"
-        android:visibility="invisible"
-        android:layout_marginEnd="20dp">
+        android:visibility="invisible">
         <TextView
             android:id="@+id/action"
             android:layout_width="match_parent"

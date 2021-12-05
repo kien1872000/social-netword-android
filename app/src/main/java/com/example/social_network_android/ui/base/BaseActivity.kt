@@ -2,10 +2,8 @@ package com.example.social_network_android.ui.base
 
 import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import android.os.PersistableBundle
 import android.widget.Toast
 import com.example.social_network_android.R
-import com.example.social_network_android.ui.home.profile.ProfileFragment
 import com.example.social_network_android.utils.DialogUtil
 
 abstract class BaseActivity : AppCompatActivity(), IBaseView {
@@ -40,12 +38,12 @@ abstract class BaseActivity : AppCompatActivity(), IBaseView {
         TODO("Not yet implemented")
     }
 
-    override fun onLogout() {
-        TODO("Not yet implemented")
-    }
 
     override fun onNotFoundError() {
         TODO("Not yet implemented")
     }
 
+    override fun onUnAuthorizeError() {
+        TODO("Not yet implemented")
+    }
 }

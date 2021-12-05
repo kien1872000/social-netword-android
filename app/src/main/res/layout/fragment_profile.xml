@@ -1,20 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<LinearLayout android:orientation="vertical"
+    android:id="@+id/profile"
     android:background="@color/homeBackground"
-    tools:context=".ui.home.profile.ProfileFragment">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/title_profile"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Nguyễn Kiên"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black" />
+    </LinearLayout>
+    <include
+        layout="@layout/profile_display_layout"/>
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <include layout="@layout/profile_shimmer_layout" />
+        android:layout_height="wrap_content">
+        <include layout="@layout/profile_shimmer_layout"/>
     </com.facebook.shimmer.ShimmerFrameLayout>
-    <include
-        android:id="@+id/display_layout"
-        layout="@layout/profile_display_layout" />
-
-</FrameLayout>
+</LinearLayout>

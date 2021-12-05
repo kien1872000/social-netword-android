@@ -1,9 +1,12 @@
 package com.example.social_network_android.ui.home.baseHome
 
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.social_network_android.R
 import com.example.social_network_android.ui.base.BaseFragment
+import com.example.social_network_android.ui.login.main.MainActivity
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.lcodecore.tkrefreshlayout.footer.LoadingView
@@ -50,5 +53,22 @@ abstract class BaseHomeFragment(): BaseFragment(), IBaseHomeView {
 
     override fun finishLoadMore() {
         refreshLayout?.finishLoadmore()
+    }
+    protected fun showFragment(fragment: Fragment, containerId: Int, name: String? =null) {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.fast_slide_left_enter,
+                R.anim.fast_slide_left_exit,
+                R.anim.fast_slide_right_exit,
+                R.anim.fast_slide_right_enter
+            )
+            .addToBackStack(name)
+            .replace(containerId, fragment)
+            .commit()
+    }
+
+    override fun onUnAuthorizeError() {
+        val intent = Intent(requireActivity(), MainActivity::class.java)
+        requireActivity().startActivity(intent)
     }
 }

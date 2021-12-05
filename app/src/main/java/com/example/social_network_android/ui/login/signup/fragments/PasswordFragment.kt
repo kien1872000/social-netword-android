@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.social_network_android.R
+import com.example.social_network_android.data.local.prefs.PreferencesHelper
 import com.example.social_network_android.ui.login.signup.SignupPresenter
 import com.example.social_network_android.ui.login.signup.views.ISignupView
 import com.example.social_network_android.utils.CommonUtils
@@ -38,6 +39,7 @@ class PasswordFragment : ScreenWithEdtFragment(), ISignupView {
             sex = it.getInt(SEX)
             email = it.getString(EMAIL).toString()
         }
+        signupPresenter = SignupPresenter().also { it.onAttach(this, PreferencesHelper(requireContext())) }
     }
 
     override fun onCreateView(
@@ -50,8 +52,6 @@ class PasswordFragment : ScreenWithEdtFragment(), ISignupView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        signupPresenter = SignupPresenter()
-        signupPresenter.onAttach(this)
         input = edt_input.edt
         input.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(Constants.DISPLAY_NAME_MAX_LENGTH))
         nextBtn = next_btn.next

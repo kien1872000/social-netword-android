@@ -1,9 +1,10 @@
 package com.example.social_network_android.ui.home.newsFeed
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import com.example.social_network_android.R
 import com.example.social_network_android.ui.home.baseHome.BaseHomeActivity
-import com.example.social_network_android.ui.home.profile.ProfileFragment
+import com.example.social_network_android.ui.home.profile.mainProfile.ProfileFragment
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_news_feed.*
 
@@ -27,7 +28,11 @@ class NewsFeedActivity : BaseHomeActivity() {
     }
 
     override fun onBackPressed() {
-        moveTaskToBack(true)
+        if (supportFragmentManager.backStackEntryCount ==0) {
+            moveTaskToBack(true)
+        } else {
+           supportFragmentManager.popBackStack()
+        }
     }
 
     private fun onTabSelected() {
@@ -58,6 +63,7 @@ class NewsFeedActivity : BaseHomeActivity() {
     }
     private fun showProfileFragment() {
         profileFragment = ProfileFragment()
-        showFragment("profileFm", profileFragment!!)
+        showFragment(profileFragment!!, R.id.tab_item)
     }
+
 }

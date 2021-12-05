@@ -17,7 +17,8 @@ class AppApi {
         const val BASE_URL = "http://10.0.2.2:8080/"
         fun create(apiType: Constants.ApiType, token: String = "") : ApiInterface {
             val client = when(apiType) {
-                Constants.ApiType.ProtectedApi -> OkHttpClient.Builder().addInterceptor (Interceptor { chain ->
+                Constants.ApiType.ProtectedApi -> OkHttpClient.Builder()
+                    .addInterceptor (Interceptor { chain ->
                     val newRequest: Request = chain.request().newBuilder()
                         .addHeader("Authorization", "Bearer $token")
                         .build()

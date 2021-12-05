@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/homeBackground"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".ui.home.profile.userInfo.UserInfoFragment">
+
+    <TextView
+        android:id="@+id/cancel_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/cancel_action_text"
+        android:textColor="@color/white" />
+
+    <FrameLayout
+        android:id="@+id/save_btn"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@color/login_btn_before_click">
+
+        <TextView
+            android:id="@+id/save_action"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/save_action_text"
+            android:textColor="@color/white" />
+
+        <View
+            android:id="@+id/save_btn_effect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/img_click_effect"
+            android:clickable="true" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/information_title"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+
+    <View
+        android:id="@+id/separator_line_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/title"
+        android:layout_marginHorizontal="@dimen/title_margin"
+        android:layout_marginTop="@dimen/title_margin"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/display_name_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/separator_line_1"
+        android:layout_marginStart="@dimen/title_margin"
+        android:layout_marginTop="@dimen/title_margin"
+        android:text="@string/information_display_name"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <FrameLayout
+        android:id="@+id/display_name_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/display_name_title"
+        android:layout_marginStart="@dimen/title_margin"
+        android:layout_marginTop="@dimen/title_margin">
+
+        <TextView
+            android:id="@+id/display_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/display_name_input"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/edt_border"
+            android:hint="@string/display_name_hint"
+            android:maxLength="50"
+            android:maxLines="1"
+            android:paddingStart="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/line_color"
+            android:visibility="gone" />
+    </FrameLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/separator_line_1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/title_margin"
+        android:layout_marginEnd="@dimen/title_margin"
+        app:cardBackgroundColor="@color/homeBackground"
+        app:cardCornerRadius="20dp">
+
+        <ImageView
+            android:id="@+id/hello"
+            android:layout_width="@dimen/information_edit_btn"
+            android:layout_height="@dimen/information_edit_btn"
+            android:layout_gravity="center"
+            android:src="@drawable/edit_btn" />
+
+        <View
+            android:id="@+id/display_name_edit_btn"
+            android:layout_width="@dimen/btn_effect"
+            android:layout_height="@dimen/btn_effect"
+            android:background="@drawable/img_click_effect"
+            android:clickable="true" />
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/separator_line_2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/display_name_area"
+        android:layout_marginHorizontal="@dimen/title_margin"
+        android:layout_marginTop="@dimen/title_margin"
+        android:background="@color/line_color" />
+
+
+    <TextView
+        android:id="@+id/birthday_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/separator_line_2"
+        android:layout_marginStart="@dimen/title_margin"
+        android:layout_marginTop="@dimen/title_margin"
+        android:text="@string/information_birthday"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/birthday_title"
+        android:layout_marginStart="@dimen/title_margin"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/separator_line_2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/title_margin"
+        android:layout_marginEnd="@dimen/title_margin"
+        app:cardBackgroundColor="@color/homeBackground"
+        app:cardCornerRadius="20dp">
+
+        <ImageView
+            android:layout_width="@dimen/information_edit_btn"
+            android:layout_height="@dimen/information_edit_btn"
+            android:layout_gravity="center"
+            android:src="@drawable/edit_btn" />
+
+        <View
+            android:id="@+id/birthday_edit_btn"
+            android:layout_width="@dimen/btn_effect"
+            android:layout_height="@dimen/btn_effect"
+            android:background="@drawable/img_click_effect"
+            android:clickable="true" />
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@id/separator_line_3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/birthday"
+        android:layout_marginHorizontal="@dimen/title_margin"
+        android:layout_marginTop="@dimen/title_margin"
+        android:background="@color/line_color" />
+
+    <TextView
+        android:id="@+id/sex_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/separator_line_3"
+        android:layout_marginStart="@dimen/title_margin"
+        android:layout_marginTop="@dimen/title_margin"
+        android:text="@string/information_sex"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <FrameLayout
+        android:id="@+id/sex_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sex_title"
+        android:layout_marginHorizontal="@dimen/title_margin"
+        android:layout_marginTop="@dimen/title_margin">
+
+        <TextView
+            android:id="@+id/sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <RadioGroup
+            android:id="@+id/sex_radio_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/radio_male"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginVertical="10dp"
+                android:layout_weight="1"
+                android:buttonTint="@color/line_color"
+                android:layoutDirection="rtl"
+                android:text="Nam"
+                android:textAlignment="textStart"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/radio_female"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginVertical="10dp"
+                android:buttonTint="@color/line_color"
+                android:includeFontPadding="true"
+                android:layoutDirection="rtl"
+                android:text="Nữ"
+                android:textAlignment="textStart"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/radio_other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginVertical="10dp"
+                android:buttonTint="@color/line_color"
+                android:layoutDirection="rtl"
+                android:text="Khác"
+                android:textAlignment="textStart"
+                android:textColor="@color/white" />
+        </RadioGroup>
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/separator_line_4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/sex_area"
+        android:layout_marginHorizontal="@dimen/title_margin"
+        android:layout_marginTop="@dimen/title_margin"
+        android:background="@color/line_color" />
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/separator_line_3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/title_margin"
+        android:layout_marginEnd="@dimen/title_margin"
+        app:cardBackgroundColor="@color/homeBackground"
+        app:cardCornerRadius="20dp">
+
+        <ImageView
+            android:layout_width="@dimen/information_edit_btn"
+            android:layout_height="@dimen/information_edit_btn"
+            android:layout_gravity="center"
+            android:src="@drawable/edit_btn" />
+
+        <View
+            android:id="@+id/sex_edit_btn"
+            android:layout_width="@dimen/btn_effect"
+            android:layout_height="@dimen/btn_effect"
+            android:background="@drawable/img_click_effect"
+            android:clickable="true" />
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/address_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/separator_line_4"
+        android:layout_marginStart="@dimen/title_margin"
+        android:layout_marginTop="@dimen/title_margin"
+        android:text="@string/information_address"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/province"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btn_effect"
+        android:layout_below="@+id/address_title"
+        android:layout_marginStart="@dimen/title_margin"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:text="@string/add_province_text"
+        android:textColor="@color/clickable_text_effect"
+        android:textSize="17sp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/province"
+        android:layout_alignBottom="@id/province"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="@color/homeBackground">
+
+        <ImageView
+            android:layout_width="@dimen/information_edit_btn"
+            android:layout_height="@dimen/information_edit_btn"
+            android:layout_gravity="center"
+            android:src="@mipmap/reset_btn" />
+
+        <View
+            android:clickable="true"
+            android:background="@drawable/img_click_effect"
+            android:id="@+id/province_reset_btn"
+            android:layout_width="@dimen/btn_effect"
+            android:layout_height="@dimen/btn_effect" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/district"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btn_effect"
+        android:layout_below="@+id/province"
+        android:layout_marginStart="@dimen/title_margin"
+        android:layout_marginTop="@dimen/title_margin"
+        android:clickable="true"
+        android:text="@string/add_district_text"
+        android:textColor="@color/clickable_text_effect"
+        android:textSize="17sp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/district"
+        android:layout_alignBottom="@id/district"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="@color/homeBackground">
+
+        <ImageView
+            android:layout_width="@dimen/information_edit_btn"
+            android:layout_height="@dimen/information_edit_btn"
+            android:layout_gravity="center"
+            android:src="@mipmap/reset_btn" />
+
+        <View
+            android:id="@+id/district_reset_btn"
+            android:background="@drawable/img_click_effect"
+            android:clickable="true"
+            android:layout_width="@dimen/btn_effect"
+            android:layout_height="@dimen/btn_effect" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/ward"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btn_effect"
+        android:layout_below="@+id/district"
+        android:layout_marginStart="@dimen/title_margin"
+        android:layout_marginTop="@dimen/title_margin"
+        android:clickable="true"
+        android:text="@string/add_ward_text"
+        android:textColor="@color/clickable_text_effect"
+        android:textSize="17sp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ward"
+        android:layout_alignBottom="@id/ward"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="@color/homeBackground">
+
+        <ImageView
+            android:layout_width="@dimen/information_edit_btn"
+            android:layout_height="@dimen/information_edit_btn"
+            android:layout_gravity="center"
+            android:src="@mipmap/reset_btn" />
+
+        <View
+            android:id="@+id/ward_reset_btn"
+            android:background="@drawable/img_click_effect"
+            android:layout_width="@dimen/btn_effect"
+            android:layout_height="@dimen/btn_effect" />
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/address"
+        android:visibility="gone"
+        android:layout_marginStart="@dimen/title_margin"
+        android:layout_marginTop="@dimen/title_margin"
+        android:layout_below="@id/address_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:textColor="@color/white"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/separator_line_4"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/title_margin"
+        android:layout_marginEnd="@dimen/title_margin"
+        app:cardBackgroundColor="@color/homeBackground"
+        app:cardCornerRadius="20dp">
+
+        <ImageView
+            android:layout_width="@dimen/information_edit_btn"
+            android:layout_height="@dimen/information_edit_btn"
+            android:layout_gravity="center"
+            android:src="@drawable/edit_btn" />
+
+        <View
+            android:id="@+id/address_edit_btn"
+            android:layout_width="@dimen/btn_effect"
+            android:layout_height="@dimen/btn_effect"
+            android:background="@drawable/img_click_effect"
+            android:clickable="true" />
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
+
+
+

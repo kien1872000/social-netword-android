@@ -42,8 +42,8 @@ abstract class BaseFragment : Fragment(), IBaseView {
 
     }
 
-    override fun onLogout() {
-
+    override fun onUnAuthorizeError() {
+        TODO("Not yet implemented")
     }
 
     override fun onNotFoundError() {

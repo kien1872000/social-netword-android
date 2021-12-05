@@ -5,4 +5,6 @@ interface IPreferencesHelper {
     fun setLoginMode(mode: PreferencesHelper.LoginMode)
     fun setAccessToken(token: String)
     fun getAccessToken(): String
+    fun setUserName(userName: String)
+    fun getUserName(): String
 }

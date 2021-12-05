@@ -1,71 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/homeBackground"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    >
+
     <TextView
         android:id="@+id/txt_title_sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:gravity="center"
-        android:textSize="25dp"
+        android:text="Giới tính của bạn là gì?"
         android:textColor="@color/forgot_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Giới tính của bạn là gì?"/>
+        android:textSize="25dp" />
+
     <RadioGroup
+        android:layout_marginHorizontal="10dp"
         android:id="@+id/radio_btn_signup_sex"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="2dp"
-        android:layout_below="@id/txt_title_sex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/txt_title_sex"
+        android:layout_marginTop="30dp"
         android:orientation="vertical">
-        <RadioButton android:id="@+id/radio_male"
-            android:paddingStart="300dp"
-            android:layoutDirection="rtl"
-            android:layout_gravity="start"
-            android:textAlignment="textStart"
-            android:layout_width="wrap_content"
+        <RadioButton
+            android:layout_weight="1"
+            android:id="@+id/radio_male"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_gravity="start"
+            android:layout_marginVertical="10dp"
             android:buttonTint="@color/line_color"
-            android:textColor="@color/forgot_password"
+            android:layoutDirection="rtl"
             android:text="Nam"
-           />
-        <RadioButton android:id="@+id/radio_female"
-            android:includeFontPadding="true"
-            android:paddingStart="312dp"
-            android:layoutDirection="rtl"
-            android:layout_gravity="start"
             android:textAlignment="textStart"
+            android:textColor="@color/forgot_password"/>
+
+        <RadioButton
+            android:id="@+id/radio_female"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginVertical="10dp"
             android:buttonTint="@color/line_color"
-            android:layout_margin="10dp"
-            android:textColor="@color/forgot_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:includeFontPadding="true"
+            android:layoutDirection="rtl"
             android:text="Nữ"
-            />
-         <RadioButton android:id="@+id/radio_other"
-             android:paddingStart="300dp"
-             android:layoutDirection="rtl"
-             android:layout_gravity="start"
-             android:textAlignment="textStart"
-             android:buttonTint="@color/line_color"
-             android:layout_margin="10dp"
-             android:textColor="@color/forgot_password"
-            android:layout_width="wrap_content"
+            android:textAlignment="textStart"
+            android:textColor="@color/forgot_password" />
+
+        <RadioButton
+            android:id="@+id/radio_other"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginVertical="10dp"
+            android:buttonTint="@color/line_color"
+            android:layoutDirection="rtl"
             android:text="Khác"
-            />
+            android:textAlignment="textStart"
+            android:textColor="@color/forgot_password" />
 
     </RadioGroup>
+
     <LinearLayout
+        android:layout_marginHorizontal="10dp"
         android:id="@+id/next_btn_sex"
-        android:layout_below="@id/radio_btn_signup_sex"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <include layout="@layout/rounded_corner_btn"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radio_btn_signup_sex">
+
+        <include layout="@layout/rounded_corner_btn" />
     </LinearLayout>
-    <include layout="@layout/signup_footer"
-        android:id="@+id/login_footer"/>
+
+    <include
+        android:id="@+id/login_footer"
+        layout="@layout/signup_footer" />
 </RelativeLayout>

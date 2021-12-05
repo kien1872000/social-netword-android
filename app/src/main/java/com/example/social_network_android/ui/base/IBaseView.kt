@@ -6,8 +6,8 @@ interface IBaseView {
     fun onSuccess()
     fun showLoading()
     fun hideLoading()
-    fun onLogout()
     fun onBadRequestError()
     fun onNotFoundError()
+    fun onUnAuthorizeError()
     fun onConflictError()
 }

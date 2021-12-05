@@ -1,4 +1,4 @@
-package com.example.social_network_android.ui.login.login
+  package com.example.social_network_android.ui.login.login
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -15,6 +15,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.social_network_android.R
+import com.example.social_network_android.data.local.prefs.PreferencesHelper
 import com.example.social_network_android.ui.base.BaseFragment
 import com.example.social_network_android.ui.home.newsFeed.NewsFeedActivity
 import com.example.social_network_android.ui.login.signup.fragments.DisplayNameFragment
@@ -37,11 +38,11 @@ class LoginFragment : BaseFragment(), ILoginView {
     private lateinit var loginBtn: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loginPresenter = LoginPresenter()
         arguments?.let {
             email = it.getString(EMAIL)
             password = it.getString(PASSWORD)
         }
+        loginPresenter = LoginPresenter().also { it.onAttach(this, PreferencesHelper(requireContext())) }
     }
 
     override fun onCreateView(
@@ -53,7 +54,6 @@ class LoginFragment : BaseFragment(), ILoginView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loginPresenter.onAttach(this, requireContext())
         emailEdt = edt_email
         passwordEdt = edt_password
         emailNote = txt_view_email_error
@@ -126,6 +126,10 @@ class LoginFragment : BaseFragment(), ILoginView {
         startActivity(intent)
     }
 
+    override fun onUnAuthorizeError() {
+        Toast.makeText(activity, "Đăng nhập Thất bại", Toast.LENGTH_SHORT).show()
+    }
+
     override fun onSuccess() {
         Toast.makeText(activity, "Đăng nhập thành công", Toast.LENGTH_LONG).show()
         showNewsFeed()
@@ -166,9 +170,7 @@ class LoginFragment : BaseFragment(), ILoginView {
         })
     }
 
-    override fun onLogout() {
-        Toast.makeText(activity, "Đăng nhập Thất bại", Toast.LENGTH_SHORT).show()
-    }
+
 
     override fun onDestroy() {
         super.onDestroy()
