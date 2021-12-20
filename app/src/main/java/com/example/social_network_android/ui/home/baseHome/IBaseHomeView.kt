@@ -7,8 +7,6 @@ import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 
 interface IBaseHomeView: IBaseView {
     fun onShimmerLayoutAttach(shimmer: ShimmerFrameLayout, displayLayout: ViewGroup)
-    fun showShimmer()
-    fun hideShimmer()
     fun onRefreshLayoutAttach(refreshLayout: TwinklingRefreshLayout)
     fun finishRefreshing()
     fun finishLoadMore()

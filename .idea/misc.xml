@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14947916666666666" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/drawable/avatar_border.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/drawable/bottom_sheet_dialog_background.xml" value="0.12291666666666666" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/drawable/button_custom.xml" value="0.11041666666666666" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/drawable/click_effect_bkground.xml" value="0.25833333333333336" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/drawable/clickable_text_effect.xml" value="0.26481481481481484" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/drawable/edt_border.xml" value="0.25833333333333336" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14947916666666666" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/drawable/img_click_effect.xml" value="0.18020833333333333" />
@@ -18,24 +20,27 @@
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/activity_news_feed.xml" value="0.2885714285714286" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/address_item.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/avatar_border.xml" value="0.16944444444444445" />
-        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/edt_form.xml" value="0.115625" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/edt_form.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/edt_input.xml" value="0.115625" />
-        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_activation.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_activation.xml" value="0.16" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_address.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_birthday.xml" value="0.264" />
-        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_display_name.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_display_name.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_email.xml" value="0.264" />
-        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_image_detail.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_image_detail.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_information.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_login.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_post.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_sex.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_signup.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/fragment_user_info.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/media_file_item.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/media_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/post_item.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/profile_display_layout.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/profile_shimmer_layout.xml" value="0.16944444444444445" />
         <entry key="..\:/AndroidStudioProjects/socialnetworkandroid/app/src/main/res/layout/rounded_corner_btn.xml" value="0.115625" />

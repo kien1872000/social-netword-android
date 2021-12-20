@@ -15,13 +15,6 @@ abstract class BaseHomeActivity: BaseActivity(), IBaseHomeView {
         TODO("Not yet implemented")
     }
 
-    override fun showShimmer() {
-        TODO("Not yet implemented")
-    }
-
-    override fun hideShimmer() {
-        TODO("Not yet implemented")
-    }
 
     override fun onRefreshLayoutAttach(refreshLayout: TwinklingRefreshLayout) {
         TODO("Not yet implemented")

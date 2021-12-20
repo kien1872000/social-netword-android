@@ -17,31 +17,16 @@
         android:text="@string/cancel_action_text"
         android:textColor="@color/white" />
 
-    <FrameLayout
+    <Button
+        android:text="@string/save_action_text"
+        android:background="@drawable/button_effect"
+        android:textColor="@color/white"
         android:id="@+id/save_btn"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
-        android:background="@color/login_btn_before_click">
-
-        <TextView
-            android:id="@+id/save_action"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/save_action_text"
-            android:textColor="@color/white" />
-
-        <View
-            android:id="@+id/save_btn_effect"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/img_click_effect"
-            android:clickable="true" />
-    </FrameLayout>
-
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"/>
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -103,6 +88,7 @@
 
 
     <androidx.cardview.widget.CardView
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/separator_line_1"
@@ -312,115 +298,122 @@
         android:textColor="@color/white"
         android:textSize="20sp" />
 
-    <TextView
-        android:gravity="center"
-        android:id="@+id/province"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/btn_effect"
+    <RelativeLayout
         android:layout_below="@+id/address_title"
         android:layout_marginStart="@dimen/title_margin"
         android:layout_marginTop="20dp"
-        android:clickable="true"
-        android:text="@string/add_province_text"
-        android:textColor="@color/clickable_text_effect"
-        android:textSize="17sp" />
-
-    <androidx.cardview.widget.CardView
+        android:id="@+id/address_edit_area"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/province"
-        android:layout_alignBottom="@id/province"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="10dp"
-        app:cardCornerRadius="20dp"
-        app:cardBackgroundColor="@color/homeBackground">
-
-        <ImageView
-            android:layout_width="@dimen/information_edit_btn"
-            android:layout_height="@dimen/information_edit_btn"
-            android:layout_gravity="center"
-            android:src="@mipmap/reset_btn" />
-
-        <View
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/province"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_effect"
             android:clickable="true"
-            android:background="@drawable/img_click_effect"
-            android:id="@+id/province_reset_btn"
-            android:layout_width="@dimen/btn_effect"
-            android:layout_height="@dimen/btn_effect" />
-    </androidx.cardview.widget.CardView>
+            android:gravity="center"
+            android:text="@string/add_province_text"
+            android:textColor="@color/clickable_text_effect"
+            android:textSize="17sp" />
 
-    <TextView
-        android:gravity="center"
-        android:id="@+id/district"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/btn_effect"
-        android:layout_below="@+id/province"
-        android:layout_marginStart="@dimen/title_margin"
-        android:layout_marginTop="@dimen/title_margin"
-        android:clickable="true"
-        android:text="@string/add_district_text"
-        android:textColor="@color/clickable_text_effect"
-        android:textSize="17sp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/province_reset_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/province"
+            android:layout_alignBottom="@id/province"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="@color/homeBackground">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/district"
-        android:layout_alignBottom="@id/district"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="10dp"
-        app:cardCornerRadius="20dp"
-        app:cardBackgroundColor="@color/homeBackground">
+            <ImageView
+                android:layout_width="@dimen/information_edit_btn"
+                android:layout_height="@dimen/information_edit_btn"
+                android:layout_gravity="center"
+                android:src="@mipmap/reset_btn" />
 
-        <ImageView
-            android:layout_width="@dimen/information_edit_btn"
-            android:layout_height="@dimen/information_edit_btn"
-            android:layout_gravity="center"
-            android:src="@mipmap/reset_btn" />
+            <View
+                android:id="@+id/province_reset_btn"
+                android:clickable="true"
+                android:background="@drawable/img_click_effect"
+                android:layout_width="@dimen/btn_effect"
+                android:layout_height="@dimen/btn_effect" />
+        </androidx.cardview.widget.CardView>
 
-        <View
-            android:id="@+id/district_reset_btn"
-            android:background="@drawable/img_click_effect"
+        <TextView
+            android:id="@+id/district"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_effect"
+            android:layout_below="@+id/province"
+            android:layout_marginTop="@dimen/title_margin"
             android:clickable="true"
-            android:layout_width="@dimen/btn_effect"
-            android:layout_height="@dimen/btn_effect" />
-    </androidx.cardview.widget.CardView>
+            android:gravity="center"
+            android:text="@string/add_district_text"
+            android:textColor="@color/clickable_text_effect"
+            android:textSize="17sp" />
 
-    <TextView
-        android:gravity="center"
-        android:id="@+id/ward"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/btn_effect"
-        android:layout_below="@+id/district"
-        android:layout_marginStart="@dimen/title_margin"
-        android:layout_marginTop="@dimen/title_margin"
-        android:clickable="true"
-        android:text="@string/add_ward_text"
-        android:textColor="@color/clickable_text_effect"
-        android:textSize="17sp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/district_reset_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/district"
+            android:layout_alignBottom="@id/district"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="@color/homeBackground">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/ward"
-        android:layout_alignBottom="@id/ward"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="10dp"
-        app:cardCornerRadius="20dp"
-        app:cardBackgroundColor="@color/homeBackground">
+            <ImageView
+                android:layout_width="@dimen/information_edit_btn"
+                android:layout_height="@dimen/information_edit_btn"
+                android:layout_gravity="center"
+                android:src="@mipmap/reset_btn" />
 
-        <ImageView
-            android:layout_width="@dimen/information_edit_btn"
-            android:layout_height="@dimen/information_edit_btn"
-            android:layout_gravity="center"
-            android:src="@mipmap/reset_btn" />
+            <View
+                android:id="@+id/district_reset_btn"
+                android:background="@drawable/img_click_effect"
+                android:clickable="true"
+                android:layout_width="@dimen/btn_effect"
+                android:layout_height="@dimen/btn_effect" />
+        </androidx.cardview.widget.CardView>
 
-        <View
-            android:id="@+id/ward_reset_btn"
-            android:background="@drawable/img_click_effect"
-            android:layout_width="@dimen/btn_effect"
-            android:layout_height="@dimen/btn_effect" />
-    </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/ward"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_effect"
+            android:layout_below="@+id/district"
+            android:layout_marginTop="@dimen/title_margin"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/add_ward_text"
+            android:textColor="@color/clickable_text_effect"
+            android:textSize="17sp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ward_reset_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/ward"
+            android:layout_alignBottom="@id/ward"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="@color/homeBackground">
+
+            <ImageView
+                android:layout_width="@dimen/information_edit_btn"
+                android:layout_height="@dimen/information_edit_btn"
+                android:layout_gravity="center"
+                android:src="@mipmap/reset_btn" />
+
+            <View
+                android:id="@+id/ward_reset_btn"
+                android:clickable="true"
+                android:background="@drawable/img_click_effect"
+                android:layout_width="@dimen/btn_effect"
+                android:layout_height="@dimen/btn_effect" />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
     <TextView
         android:id="@+id/address"
         android:visibility="gone"

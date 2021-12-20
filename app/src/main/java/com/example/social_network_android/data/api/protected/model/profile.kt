@@ -5,7 +5,6 @@ import com.example.social_network_android.utils.Constants
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
-data class UserProfileReq(val userId: String)
 data class UserProfileRes(
     val email: String,
     val displayName: String,
@@ -14,6 +13,7 @@ data class UserProfileRes(
     val coverPhoto: String,
     val address: AddressRes,
     val sex: String,
+    val sexNumber: Int,
     val followers: Int,
     val followings: Int,
     val isCurrentUser: Boolean,
@@ -36,7 +36,7 @@ data class UserInfoReq(val birthday: String, val sex: Int, val address: AddressR
 data class UserInfo(
     val displayName: String,
     val birthday: String,
-    val sex: String,
+    val sexNumber: Int,
     val address: AddressRes,
     val isCurrentUser: Boolean,
 ): Parcelable

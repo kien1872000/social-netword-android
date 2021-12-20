@@ -7,4 +7,5 @@ interface ISignupView: IBaseView {
 interface IActivationView: IBaseView{
     fun onActivationSuccess()
     fun onResendSuccess()
+    fun showNewsFeed()
 }

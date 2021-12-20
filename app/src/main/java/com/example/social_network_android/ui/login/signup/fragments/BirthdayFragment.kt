@@ -107,7 +107,9 @@ class BirthdayFragment : ScreenWithEdtFragment() {
         val dateSetListener =
             OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
                 input.setText("ngày $dayOfMonth, tháng ${monthOfYear + 1}, $year")
-                birthday = "$year-${monthOfYear + 1}-$dayOfMonth"
+                val day = if(dayOfMonth>10) dayOfMonth else "0$dayOfMonth"
+                val month = if(monthOfYear+1>10) monthOfYear+1 else "0${monthOfYear+1}"
+                birthday = "$year-$month-$day"
                 selectedYear = year
                 selectedDate = dayOfMonth
                 selectedMonth = monthOfYear

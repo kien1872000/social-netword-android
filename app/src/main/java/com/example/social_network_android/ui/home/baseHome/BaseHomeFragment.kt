@@ -20,7 +20,7 @@ abstract class BaseHomeFragment(): BaseFragment(), IBaseHomeView {
         this.displayLayout = displayLayout
         this.shimmerLayout  = shimmerLayout
     }
-    override fun showShimmer() {
+    override fun showLoading() {
         shimmerLayout?.let{
             it.visibility = View.VISIBLE
             displayLayout?.visibility = View.GONE
@@ -29,7 +29,7 @@ abstract class BaseHomeFragment(): BaseFragment(), IBaseHomeView {
         }
     }
 
-    override fun hideShimmer() {
+    override fun hideLoading() {
         shimmerLayout?.let {
             it.stopShimmer()
             it.visibility = View.GONE

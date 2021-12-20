@@ -20,7 +20,7 @@ class ProfilePresenter(private var userId: String?) : IProfilePresenter, BasePre
             Constants.ApiType.ProtectedApi,
             preferencesHelper!!.getAccessToken()
         ) as ProtectedApi
-        (baseView as IProfileView).showShimmer()
+        baseView!!.showLoading()
         Observable.zip(
             protectedApi.getUserProfile(userId),
             protectedApi.getMediaFiles(userId, 0, Constants.MediaFileType.Image.value)
@@ -33,12 +33,12 @@ class ProfilePresenter(private var userId: String?) : IProfilePresenter, BasePre
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 profile = it()
-                (baseView as IProfileView).apply {
-                    finishRefreshing()
-                    hideShimmer()
-                }
+                (baseView as IProfileView).finishRefreshing()
+                baseView!!.hideLoading()
+
                 loadProfile(profile!!)
             }, {
+                baseView!!.hideLoading()
                 handleApiError(t = it)
             })
     }
@@ -52,7 +52,7 @@ class ProfilePresenter(private var userId: String?) : IProfilePresenter, BasePre
             val userInfo = UserInfo(
                 displayName,
                 birthday,
-                sex,
+                sexNumber,
                 address,
                 isCurrentUser
             )
@@ -65,7 +65,7 @@ class ProfilePresenter(private var userId: String?) : IProfilePresenter, BasePre
         (baseView as IProfileView).apply {
             val userProfileRes = data.userProfileRes
             val mediaFiles = data.mediaFileRes
-            if (mediaFiles.isEmpty()) hideMediaFilesArea()
+            if (mediaFiles.isNotEmpty()) showMediaFilesArea()
             else showMediaFilesArea()
             if (userProfileRes.isCurrentUser) hideOtherPeopleAction()
             else showOtherPeopleAction()

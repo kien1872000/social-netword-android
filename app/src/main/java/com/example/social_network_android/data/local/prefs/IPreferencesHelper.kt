@@ -7,4 +7,6 @@ interface IPreferencesHelper {
     fun getAccessToken(): String
     fun setUserName(userName: String)
     fun getUserName(): String
+    fun setUserId(userId: String)
+    fun getUserId(): String
 }

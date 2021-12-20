@@ -1,5 +1,6 @@
 package com.example.social_network_android.ui.login.signup.fragments
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.widget.Button
 import android.widget.Toast
 import com.example.social_network_android.R
 import com.example.social_network_android.data.local.prefs.PreferencesHelper
+import com.example.social_network_android.ui.home.newsFeed.NewsFeedActivity
 import com.example.social_network_android.ui.login.signup.SignupPresenter
 import com.example.social_network_android.ui.login.signup.views.IActivationView
 import com.example.social_network_android.utils.CommonUtils
@@ -76,7 +78,7 @@ class ActivationFragment : ScreenWithEdtFragment(), IActivationView {
 
     private fun performActivationClick() {
         activationCode = input.text.toString().trim()
-        signupPresenter.doActivate(email, activationCode)
+        signupPresenter.doActivate(email, activationCode, password)
     }
 
     companion object {
@@ -105,6 +107,7 @@ class ActivationFragment : ScreenWithEdtFragment(), IActivationView {
 
     override fun onActivationSuccess() {
         Toast.makeText(requireActivity(), "Kích hoạt thành công", Toast.LENGTH_SHORT).show()
+        signupPresenter.doLogin(email, password)
     }
 
     override fun onResendSuccess() {
@@ -112,6 +115,11 @@ class ActivationFragment : ScreenWithEdtFragment(), IActivationView {
         note.visibility = View.VISIBLE
         note.text = getString(R.string.send_activation_code_success)
         note.setTextColor(resources.getColor(R.color.line_color))
+    }
+
+    override fun showNewsFeed() {
+        val intent = Intent(requireActivity(), NewsFeedActivity::class.java)
+        startActivity(intent)
     }
 
     override fun onDestroy() {

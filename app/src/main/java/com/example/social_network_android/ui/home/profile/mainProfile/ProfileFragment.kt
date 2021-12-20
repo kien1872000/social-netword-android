@@ -62,6 +62,7 @@ class ProfileFragment : BaseHomeFragment(), IProfileView, MediaFilesItemClickLis
         setTitle()
         onRefreshLayoutAttach(refresh)
         onShimmerLayoutAttach(shimmer_layout, refresh)
+        hideMediaFilesArea()
         profilePresenter.getProfile()
     }
 

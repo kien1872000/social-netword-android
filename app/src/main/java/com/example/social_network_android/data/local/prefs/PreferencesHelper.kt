@@ -23,10 +23,15 @@ class PreferencesHelper(context: Context): IPreferencesHelper{
     override fun setUserName(userName: String) {
         sharePrefs.edit{putString(PREFS_KEY_USER_NAME, userName)}
     }
-
     override fun getUserName(): String = sharePrefs.getString(PREFS_KEY_USER_NAME, "")!!
+    override fun setUserId(userId: String) {
+        sharePrefs.edit{putString(PREFS_KEY_USER_ID, userId)}
+    }
+
+    override fun getUserId() = sharePrefs.getString(PREFS_KEY_USER_ID, "")!!
 
     companion object {
+        private const val PREFS_KEY_USER_ID = "pref_key_user_id"
         private const val PREFS_NAME = "user_data"
         private const val PREFS_KEY_LOGIN_MODE = "pref_key_login_mode"
         private const val PREFS_KEY_ACCESS_TOKEN = "pref_key_access_token"

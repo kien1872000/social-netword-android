@@ -1,14 +1,11 @@
 package com.example.social_network_android.data.api.protected
 
 import com.example.social_network_android.data.api.AppApi
-import com.example.social_network_android.data.api.protected.model.FollowingRes
-import com.example.social_network_android.data.api.protected.model.MediaFileRes
-import com.example.social_network_android.data.api.protected.model.UserProfileRes
+import com.example.social_network_android.data.api.protected.model.*
 import io.reactivex.Observable
 import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ProtectedApi : AppApi.ApiInterface {
     @GET("user/profile")
@@ -31,4 +28,17 @@ interface ProtectedApi : AppApi.ApiInterface {
 
     @GET("following/get/followings")
     fun getFollowings(): Observable<List<FollowingRes>>
+
+    @GET("address/provinces")
+    fun getProvinces(): Call<List<Address>>
+    @GET("address/districts/{provinceId}")
+    fun getDistricts(@Path("provinceId") provinceId: Int): Call<List<Address>>
+    @GET("address/wards/{districtId}")
+    fun getWards(@Path("districtId") districtId: Int): Call<List<Address>>
+
+    @PUT("user/update-info")
+    fun updateUserInfo(@Body() userInfoReq: UserInfoReq): Call<UserProfileRes>
+
+    @GET("post/posts?postLimit=newsfeed")
+    fun getPosts(@Query("postLimit") postLimit: String): Call<List<PostRes>>
 }

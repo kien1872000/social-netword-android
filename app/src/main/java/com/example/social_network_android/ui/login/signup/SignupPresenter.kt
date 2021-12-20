@@ -1,10 +1,10 @@
 package com.example.social_network_android.ui.login.signup
 
+import android.util.Log
 import com.example.social_network_android.data.api.AppApi
 import com.example.social_network_android.data.api.public.PublicApi
-import com.example.social_network_android.data.api.public.model.ActivationReq
-import com.example.social_network_android.data.api.public.model.SendActivationCodeReq
-import com.example.social_network_android.data.api.public.model.SignupReq
+import com.example.social_network_android.data.api.public.model.*
+import com.example.social_network_android.data.local.prefs.PreferencesHelper
 import com.example.social_network_android.ui.base.BasePresenter
 import com.example.social_network_android.ui.login.signup.views.IActivationView
 import com.example.social_network_android.ui.login.signup.views.ISignupView
@@ -32,6 +32,7 @@ class SignupPresenter : BasePresenter(), ISignupPresenter {
                     call: Call<ResponseBody>,
                     response: Response<ResponseBody>,
                 ) {
+                    Log.d("H111", response.errorBody().toString())
                     baseView?.hideLoading()
                     if (response.isSuccessful) {
                         (baseView as ISignupView)?.onSuccess()
@@ -46,8 +47,7 @@ class SignupPresenter : BasePresenter(), ISignupPresenter {
 
             })
     }
-
-    override fun doActivate(email: String, activationCode: String) {
+    override fun doActivate(email: String, activationCode: String, password: String) {
         val activationReq = ActivationReq(email, activationCode)
         publicApi.activateAccount(activationReq)
             .enqueue(object : Callback, retrofit2.Callback<ResponseBody> {
@@ -56,7 +56,7 @@ class SignupPresenter : BasePresenter(), ISignupPresenter {
                     response: Response<ResponseBody>,
                 ) {
                     if (response.isSuccessful) {
-                        (baseView as IActivationView)?.onSuccess()
+                        (baseView as IActivationView).onActivationSuccess()
                     } else {
                         handleApiError(response.code(), response.errorBody()!!.string())
                     }
@@ -77,7 +77,7 @@ class SignupPresenter : BasePresenter(), ISignupPresenter {
                     response: Response<ResponseBody>,
                 ) {
                     if (response.isSuccessful) {
-                        baseView?.onSuccess()
+                        (baseView as IActivationView).onResendSuccess()
                     } else {
                         handleApiError(response.code(), response.errorBody()!!.string())
                     }
@@ -87,5 +87,32 @@ class SignupPresenter : BasePresenter(), ISignupPresenter {
                     handleApiError(t = t)
                 }
             })
+    }
+
+    override fun doLogin(email: String, password: String) {
+        val loginReq = LoginReq(email, password)
+        baseView?.showLoading()
+        publicApi.login(loginReq).enqueue(object: retrofit2.Callback<LoginRes>{
+            override fun onResponse(call: Call<LoginRes>, response: Response<LoginRes>) {
+                baseView?.hideLoading()
+                if(response.isSuccessful) {
+                    preferencesHelper?.apply {
+                        setAccessToken(response.body()!!.accessToken)
+                        setUserName(response.body()!!.displayName)
+                        setLoginMode(PreferencesHelper.LoginMode.LOGGED_IN)
+                    }
+                    (baseView as IActivationView).showNewsFeed()
+                }
+                else{
+                    handleApiError(response.code(), response.errorBody()!!.string())
+                }
+            }
+
+            override fun onFailure(call: Call<LoginRes>, t: Throwable) {
+                baseView?.hideLoading()
+                handleApiError(t=t)
+            }
+
+        })
     }
 }

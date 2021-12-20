@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.social_network_android.R
 import com.example.social_network_android.ui.home.baseHome.BaseHomeActivity
+import com.example.social_network_android.ui.home.post.PostFragment
 import com.example.social_network_android.ui.home.profile.mainProfile.ProfileFragment
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_news_feed.*
@@ -11,11 +12,13 @@ import kotlinx.android.synthetic.main.activity_news_feed.*
 class NewsFeedActivity : BaseHomeActivity() {
     private lateinit var tabLayout: TabLayout
     private var profileFragment: ProfileFragment? = null
+    private var postFragment: PostFragment? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news_feed)
         tabLayout = tab_layout
         showTabs()
+        showPostFragment()
         onTabSelected()
     }
     private fun showTabs(){
@@ -53,13 +56,17 @@ class NewsFeedActivity : BaseHomeActivity() {
     }
     private fun showTabItem(position: Int) {
         when(position) {
-            0 -> Any()
+            0 -> showPostFragment()
             1 -> Any()
             2 -> Any()
             3 -> Any()
             4 -> Any()
             5 -> showProfileFragment()
         }
+    }
+    private fun showPostFragment() {
+        postFragment = PostFragment()
+        showFragment(postFragment!!, R.id.tab_item)
     }
     private fun showProfileFragment() {
         profileFragment = ProfileFragment()

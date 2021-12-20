@@ -17,5 +17,10 @@ object Constants {
         Video("video"),
         All("all")
     }
+    enum class Address(val value: Int) {
+        Province(0),
+        District(1),
+        Ward(2)
+    }
 }
 
